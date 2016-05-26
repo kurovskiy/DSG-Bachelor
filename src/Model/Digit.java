@@ -1,18 +1,20 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-/**
- * Created by alexe on 15.05.2016.
- */
 public class Digit extends Text {
 	private ArrayList<Text> links;
 	private String text;
-	public Digit(ArrayList<Text> links, String text) {
-		super();
+
+	protected Digit() {}
+
+	public Digit(Date date, String number, ArrayList<Text> links, String text) {
+		super(date, number);
 		this.links = links;
 		this.text = text;
 	}
+
 	public ArrayList<Text> getLinks() {
 		return links;
 	}
@@ -25,7 +27,4 @@ public class Digit extends Text {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
-	
-	
 }

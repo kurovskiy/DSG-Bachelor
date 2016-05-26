@@ -2,17 +2,15 @@ package Model;
 
 import java.util.Date;
 
-/**
- * Created by alexe on 15.05.2016.
- */
 public abstract class Text {
 	private Date date;
 	private String number;
 	
-	public Text() {}
+	protected Text(){}
+
 	public Text (Date date, String number){
-		this.date=date;
-		this.number=number;
+		this.date = date;
+		this.number = number;
 	}
 	
 	public Date getDate() {

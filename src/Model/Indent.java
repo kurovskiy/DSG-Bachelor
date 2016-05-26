@@ -1,20 +1,22 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-/**
- * Created by alexe on 15.05.2016.
- */
 public class Indent extends Text{
 	private ArrayList<Digit> items;
 	private ArrayList<Text> links;
 	private String text;
-	public Indent(ArrayList<Digit> items, ArrayList<Text> links, String text) {
-		super();
+
+	protected Indent(){}
+
+	public Indent(Date date, String number, ArrayList<Digit> items, ArrayList<Text> links, String text) {
+		super(date, number);
 		this.items = items;
 		this.links = links;
 		this.text=text;
 	}
+
 	public ArrayList<Digit> getItems() {
 		return items;
 	}
@@ -33,6 +35,4 @@ public class Indent extends Text{
 	public void setText(String text){
 		this.text=text;
 	}
-
-	
 }

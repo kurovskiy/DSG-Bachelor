@@ -1,24 +1,25 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-/**
- * Created by alexe on 15.05.2016.
- */
 public class Paragraph extends Text{
 	private ArrayList<Text> items;
 	private  ArrayList<Text> links;
 	private String name;
 	private String text;
 	//private SuffixTree suffixTree;
-	public Paragraph(ArrayList<Text> items, ArrayList<Text> links, String name,
-			String text) {
-		super();
+
+	protected Paragraph(){}
+
+	public Paragraph(Date date, String number, ArrayList<Text> items, ArrayList<Text> links, String name, String text) {
+		super(date, number);
 		this.items = items;
 		this.links = links;
 		this.name = name;
 		this.text = text;
 	}
+
 	public ArrayList<Text> getItems() {
 		return items;
 	}
@@ -43,7 +44,4 @@ public class Paragraph extends Text{
 	public void setText(String text) {
 		this.text = text;
 	}
-	
-	
-	
 }
