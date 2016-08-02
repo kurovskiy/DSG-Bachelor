@@ -3,12 +3,12 @@ package Model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Section extends Text{
+public class Section extends Text {
 	private ArrayList<Paragraph> items;
 	private String name;
 
 	protected Section(){}
-	
+
 	public Section(Date date, String number, ArrayList<Paragraph> items, String name) {
 		super(date, number);
 		this.items = items;

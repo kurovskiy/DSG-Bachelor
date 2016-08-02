@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Indent extends Text{
+public class Indent extends Text {
 	private ArrayList<Digit> items;
 	private ArrayList<Text> links;
 	private String text;
