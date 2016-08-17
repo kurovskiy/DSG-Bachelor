@@ -42,6 +42,16 @@ public class Controller {
 
     public ArrayList<String> Browse(String paragraphNumber) {
         ArrayList<String> html = new ArrayList<String>();
+        html.add("<div class=\"header\">");
+        html.add("<form action=\"/\" method=\"GET\">");
+        html.add("<button id=\"homebutton\" type=\"submit\" class=\"css_button\" value=\"home\">Homepage</button>");
+        html.add("</form>");
+        html.add("<form action=\"BrowseServlet\" method=\"GET\">");
+        html.add("<input id=\"paragraph\" name=\"paragraph\" type=\"hidden\" value=\"\">");
+        html.add("<button id=\"browsebutton\" type=\"submit\" class=\"css_button\" value=\"browse\">Dokument</button>");
+        html.add("</form>");
+        html.add("</div>");
+        html.add("<div id=\"lawtext\" class=\"textdiv\">");
         if (paragraphNumber == "") {
             ArrayList<Paragraph> paragraphs = Search.getInstance().getParagraphs();
             for (Paragraph paragraph : paragraphs) {
@@ -70,6 +80,7 @@ public class Controller {
                         }
                     }
             }
+            html.add("</div>");
             return html;
         }
         else {
@@ -114,7 +125,12 @@ public class Controller {
             ArrayList<Paragraph> toRemove = new ArrayList<Paragraph>();
             for (Paragraph paragraph : searchResult.getParagraphs()) {
                 try {
-                    if (Integer.parseInt(paragraph.getNumber()) < start || Integer.parseInt(paragraph.getNumber()) > end)
+                    int paragraphnumber = 0;
+                    if (paragraph.getNumber().length() > 2)
+                        paragraphnumber = Integer.parseInt(paragraph.getNumber().substring(0, 2));
+                    else
+                        paragraphnumber = Integer.parseInt(paragraph.getNumber());
+                    if (paragraphnumber < start || paragraphnumber > end)
                         toRemove.add(paragraph);
                 }
                 catch (Exception e) {}
@@ -123,7 +139,7 @@ public class Controller {
                 searchResult.getParagraphs().remove(paragraph);
             }
         }
-        html.add("<table style=\"width:35%\">");
+        html.add("<table class=\"tftable\"");
         html.add("<tr>");
         html.add("<th align=\"left\">Number</th>");
         html.add("<th align=\"left\">Text</th>");
